@@ -1,3 +1,6 @@
+2019/03/11  1.32  Norbert Preining (norbert@preining.info>
+	- Fix Spanish abbreviations for month 5,6,7 (Debian bug: #689450)
+
 2012/01/03  1.31  Harald Harders (harald.harders@gmx.de)
 	- Added Serbian, Czech, and Romanian language
         - Corrections in Portuguese, Croatian, Swedish

@@ -1,5 +1,5 @@
 % \iffalse meta comment
-% File: babelbib.dtx Copyright (C) 2003--2012 Harald Harders
+% File: babelbib.dtx Copyright (C) 2003--2019 Harald Harders
 % \fi
 %
 % \iffalse
@@ -145,6 +145,7 @@
 % \changes{1.31}{2012/01/03}{Added Serbian, Czech, and Romanian language}%
 % \changes{1.31}{2012/01/03}{Change handling of editions to allow
 %   keyword `edition' before the edition number}%
+% \changes{1.32}{2019/03/11}{Fix Spanish month abbreviation missing periods}%
 %
 % \maketitle
 % \begin{abstract}
@@ -181,7 +182,7 @@
 % \tableofcontents
 %
 % \section*{Copyright}
-% Copyright 2003--2012 Harald Harders.
+% Copyright 2003--2019 Harald Harders.
 %
 % This program can be redistributed and/or modified under the terms
 % of the LaTeX Project Public License Distributed from CTAN
@@ -3897,9 +3898,9 @@
   \def\btxmonfebshort##1{\protect\foreignlanguage{#1}{Feb##1{}}}%
   \def\btxmonmarshort##1{\protect\foreignlanguage{#1}{Mar##1{}}}%
   \def\btxmonaprshort##1{\protect\foreignlanguage{#1}{Abr##1{}}}%
-  \def\btxmonmayshort##1{\protect\foreignlanguage{#1}{May}}%
-  \def\btxmonjunshort##1{\protect\foreignlanguage{#1}{Jun}}%
-  \def\btxmonjulshort##1{\protect\foreignlanguage{#1}{Jul}}%
+  \def\btxmonmayshort##1{\protect\foreignlanguage{#1}{May##1{}}}%
+  \def\btxmonjunshort##1{\protect\foreignlanguage{#1}{Jun##1{}}}%
+  \def\btxmonjulshort##1{\protect\foreignlanguage{#1}{Jul##1{}}}%
   \def\btxmonaugshort##1{\protect\foreignlanguage{#1}{Ago##1{}}}%
   \def\btxmonsepshort##1{\protect\foreignlanguage{#1}{Sep##1{}}}%
   \def\btxmonoctshort##1{\protect\foreignlanguage{#1}{Oct##1{}}}%
