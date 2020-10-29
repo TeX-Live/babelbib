@@ -38,7 +38,7 @@ tugboat-babelbib.pdf:
 
 
 clean:
-	@-rm -f *.glo *.gls *.idx *.ilg *.ind *.toc *.log *.aux *.blg *.bbl
+	@-rm -f *.glo *.gls *.idx *.ilg *.ind *.toc *.log *.aux *.blg *.bbl *.out
 	@-rm -f *~
 
 distclean: clean
