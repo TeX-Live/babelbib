@@ -1,3 +1,7 @@
+2020/10/29  1.33  Norbert Preining (norbert@preining.info>
+	- Add missing Afrikaans translation of urldatecomment
+	  (thanks to Bertus van Heerden, Github Issue: #1)
+
 2019/03/11  1.32  Norbert Preining (norbert@preining.info>
 	- Fix Spanish abbreviations for month 5,6,7 (Debian bug: #689450)
 

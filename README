@@ -21,7 +21,7 @@ package and how to extend it. The source code for this file is not included.
 This article is about version 0.40 of this package but is up-to-date in most
 parts.
 
-Copyright 2003--2019 Harald Harders
+Copyright 2003--2020 Harald Harders
 
 This program can be redistributed and/or modified under the terms
 of the LaTeX Project Public License Distributed from CTAN
@@ -56,7 +56,7 @@ by hand: - execute latex on babelbib.ins
 To do:
 - Add more languages.
 - Test the different BibTeX styles.
-- Add definition of \btxurldatecomment to Esperanto and Afrikaans.
+- Add definition of \btxurldatecomment to Esperanto.
 
 2012-01-03
 Harald Harders

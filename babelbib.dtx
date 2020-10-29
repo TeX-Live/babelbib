@@ -1,5 +1,5 @@
 % \iffalse meta comment
-% File: babelbib.dtx Copyright (C) 2003--2019 Harald Harders
+% File: babelbib.dtx Copyright (C) 2003--2020 Harald Harders
 % \fi
 %
 % \iffalse
@@ -147,6 +147,7 @@
 % \changes{1.31}{2012/01/03}{Change handling of editions to allow
 %   keyword `edition' before the edition number}%
 % \changes{1.32}{2019/03/11}{Fix Spanish month abbreviation missing periods}%
+% \changes{1.33}{2020/10/29}{Add Afrikaans translation of urldatecomment}%
 %
 % \maketitle
 % \begin{abstract}
@@ -948,8 +949,8 @@
 %    \end{macrocode}
 % Version information unique for all generated files:
 %    \begin{macrocode}
-%<latex>  [2019/03/11 v1.32  babelbib: multilingual bibliographies (HH)]
-%<bst>%% 2019/03/11 v1.32  babelbib: multilingual bibliographies (HH)
+%<latex>  [2020/10/29 v1.33  babelbib: multilingual bibliographies (HH)]
+%<bst>%% 2020/10/29 v1.33  babelbib: multilingual bibliographies (HH)
 %    \end{macrocode}
 %
 % \subsection{The package itself}
@@ -5230,6 +5231,7 @@
 %
 % \subsubsection{Afrikaans}
 % \changes{0.34}{2003/07/28}{Added Afrikaans language}%
+% \changes{1.33}{2020/10/29}{Added translation of urldatecomment (by Bertus van Heerden)}%
 %    \begin{macrocode}
 %<*afrikaans>
 %    \end{macrocode}
@@ -5320,10 +5322,7 @@
   \def\Btxpageslong##1{\protect\foreignlanguage{#1}{Bladsye}}%
   \def\Btxtechrepshort##1{\protect\foreignlanguage{#1}{Tegn.\ Verslag}}%
   \def\Btxtechreplong##1{\protect\foreignlanguage{#1}{Tegniese Verslag}}%
-%  \def\btxurldatecomment##1{\protect\foreignlanguage{#1}{, ?? ##1}}%
-  \def\btxurldatecomment##1{\PackageError{babelbib}{Comment for
-      urldate in Afrikaans undefined. Please send the translation for 
-      'visited on' to harald.harders@tu-bs.de}{} [##1]}%
+  \def\btxurldatecomment##1{\protect\foreignlanguage{#1}{, besoek op ##1}}%
   \def\btxfnamespaceshort{\,}%
   \def\btxfnamespacelong{ }%
   \def\btxnumeralshort##1{\btxnumeralfallback{#1}{##1}}%
