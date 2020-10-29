@@ -45,7 +45,6 @@ distclean: clean
 	@-rm -f babelbib.sty babelbib.pdf babelbib.ps
 	@-rm -f babelbibtest.pdf babelbibtest.ps
 	@-rm -f *.bdf bab*.bst
-	@-rm -f tugboat-babelbib.pdf tugboat-babelbib.bib
 	@-rm -rf texmf/
 
 tar:	all clean
