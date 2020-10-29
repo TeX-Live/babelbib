@@ -16,10 +16,14 @@ of the bibliographies.
 Please help me to add more languages to babelbib.
 
 The file tugboat-babelbib.pdf is a draft of an article that has been
-published in TUGboat. It contains a detailed documentation of the babelbib
-package and how to extend it. The source code for this file is not included.
-This article is about version 0.40 of this package but is up-to-date in most
-parts.
+published in TUGboat Volume 23 (2002), No. 3/4. Thanks to the open
+access policy of TUG, the published article is availabe from
+	https://www.tug.org/TUGboat/tb23-3-4/
+	https://www.tug.org/TUGboat/tb23-3-4/tb75harders.pdf
+It contains a detailed documentation of the babelbib package and how
+to extend it. The source code for this file is not included.
+This article is about version 0.40 of this package but is up-to-date
+in most parts.
 
 Copyright 2003--2019 Harald Harders
 Copyright 2019--2020 Norbert Preining
