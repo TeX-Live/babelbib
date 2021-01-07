@@ -1,6 +1,6 @@
 % \iffalse meta comment
-% File: babelbib.dtx Copyright (C) 2003--2019 Harald Harders
-%                    Copyright (C) 2019--2020 Norbert Preining
+% File: babelbib.dtx Copyright (C) 2003--2021 Harald Harders
+%                    Copyright (C) 2019--2021 Norbert Preining
 % \fi
 %
 % \iffalse
@@ -8,7 +8,6 @@
 %<*driver>
 \documentclass{ltxdoc}
 \usepackage[T1]{fontenc}
-\usepackage[latin1]{inputenc}
 \usepackage[ngerman,english]{babel}
 %\usepackage{url}
 \usepackage{array}
@@ -48,7 +47,7 @@
 \DoNotIndex{\IeC,\cyrv,\CYRV,\cyrt,\CYRT,\cyrya,\protect}
 \CodelineNumbered
 \RecordChanges
-\CheckSum{14884}
+\CheckSum{15854}
 \hyphenation{bib-lio-gra-phy}
 \begin{document}
  \DocInput{babelbib.dtx}
@@ -149,6 +148,10 @@
 %   keyword `edition' before the edition number}%
 % \changes{1.32}{2019/03/11}{Fix Spanish month abbreviation missing periods}%
 % \changes{1.33}{2020/10/29}{Add Afrikaans translation of urldatecomment}%
+% \changes{1.34}{2021/01/06}{Small bug fix in documentation}%
+% \changes{1.34}{2021/01/06}{Bug with explicitely loaded language fixed}%
+% \changes{1.34}{2021/01/06}{Added Turkish language}%
+% \changes{1.34}{2021/01/06}{Added \cs{btxjnumbers}\ldots}%
 %
 % \maketitle
 % \begin{abstract}
@@ -168,7 +171,7 @@
 %   with \texttt{frenchle} prior V5,987. Please update the frenchle
 %   package or use the native babel support for French, instead.}
 % Galician, German, Greek, Italian, Norwegian, Portuguese, Romanian,
-% Russian, Serbian, Spanish, and Swedish.
+% Russian, Serbian, Spanish, Swedish, and Turkish.
 % Please help me to add more languages.
 % 
 % Many of the standard and extended bibliography styles are available.
@@ -185,8 +188,8 @@
 % \tableofcontents
 %
 % \section*{Copyright}
-% Copyright 2003--2019 Harald Harders.\\
-% Copyright 2019--2020 Norbert Preining.
+% Copyright 2003--2021 Harald Harders.\\
+% Copyright 2019--2021 Norbert Preining.
 %
 % This program can be redistributed and/or modified under the terms
 % of the LaTeX Project Public License Distributed from CTAN
@@ -210,7 +213,7 @@
 % prior V5,987. Please update the frenchle package or use the native
 % babel support for French, instead.}
 % Galician, German, Greek, Italian, Norwegian, Portuguese, Romanian,
-% Russian, Serbian, Spanish, and Swedish.
+% Russian, Serbian, Spanish, Swedish, and Turkish.
 %
 % If you have used version 0.1 of this package:
 % The mechanism to change fonts have changed, please read
@@ -309,8 +312,8 @@
 %}\end{verbatim}
 % Then, the output of the document data (title, authors, series, etc.)
 % is typeset with correct hyphenation patterns.
-% Wheather also the keywords (``edition'', ``pages'', etc.) are
-% switched to the citation language, depends on wheather |fixlanguage|
+% Whether also the keywords (``edition'', ``pages'', etc.) are
+% switched to the citation language, depends on whether |fixlanguage|
 % has been used.
 % All languages that appear in the bibliography have to be loaded by
 % |babel|.
@@ -703,12 +706,12 @@
 %   \providebibliographyfont{url}{\url}%
 %
 % \btxselectlanguage {ngerman}
-% \bibitem {baeker1998a}
+% \bibitem {baeker1998b}
 % \btxnamefont {\btxlastnamefont {B\"aker}, M.}\btxauthorcolon\ \btxtitlefont
 %  {Automatische Neuvernetzung mit ABAQUS/Standard -- Technik und Anwendungen}.
 % \newblock Institut f\"ur Werkstoffe, Technische Universit\"at Braunschweig,
 %   Braunschweig, \btxprintmonthyear{.}{10}{1998}{long}.
-%\bibitem {aurenhammer1996a}
+%\bibitem {aurenhammer1996b}
 %\btxnamefont {\btxlastnamefont {Aurenhammer}, F.} \btxandlong {}\ \btxnamefont
 %  {R. \btxlastnamefont {Klein}}\btxauthorcolon\ \btxtitlefont
 %  {\btxifchangecase {Voronoi diagrams}{Voronoi Diagrams}}.
@@ -747,12 +750,12 @@
 %   \providebibliographyfont{url}{\url}%
 %
 % \btxselectlanguage {ngerman}
-% \bibitem {baeker1998a}
+% \bibitem {baeker1998c}
 % \btxnamefont {\btxlastnamefont {B\"aker}, M.}\btxauthorcolon\ \btxtitlefont
 %  {Automatische Neuvernetzung mit ABAQUS/Standard -- Technik und Anwendungen}.
 % \newblock Institut f\"ur Werkstoffe, Technische Universit\"at Braunschweig,
 %   Braunschweig, \btxprintmonthyear{.}{10}{1998}{long}.
-%\bibitem {aurenhammer1996a}
+%\bibitem {aurenhammer1996c}
 %\btxnamefont {\btxlastnamefont {Aurenhammer}, F.} \btxandlong {}\ \btxnamefont
 %  {R. \btxlastnamefont {Klein}}\btxauthorcolon\ \btxtitlefont
 %  {\btxifchangecase {Voronoi diagrams}{Voronoi Diagrams}}.
@@ -795,12 +798,6 @@
 %   |frenchle| package prior V5,987.
 %   Please update the frenchle package or use the native babel support
 %   for the French language, instead.
-% \item
-%   If babelbib is used together with one of the classes of the
-%   KOMA-Script bundle, some additional spaces are added when
-%   numerical edition numbers are used. 
-%   This is a KOMA-Script bug and will be fixed in the next
-%   KOMA-Script release.
 % \end{itemize}
 %
 % \section{To Do}
@@ -840,7 +837,10 @@
 % Erik \"Osthols, \url{erik.osthols@gmail.com} (Swedish);
 % Zoran Filipovic, \url{zoran.filipovic@yahoo.com} (Serbian);
 % Andrei Dragomirescu, \url{andrei.dragomirescu@gmail.com};
-% Tomas Hnizdil, \url{tomash.cz@gmail.com}.
+% Tomas Hnizdil, \url{tomash.cz@gmail.com};
+% Markus Kohm, \url{komascript@gmx.info} (bug with explicitely loaded
+% language);
+% Timo Kalliom\"aki <timoka10@gmail.com> (Finnish, \cs{btxjvolume}).
 %
 % Furthermore, I thank the person who provided Russian. 
 % Unfortunately, I cannot find the name anymore.
@@ -915,7 +915,8 @@
 %<esperanto>%%   Taneli Huuskonen <huuskone@cc.helsinki.fi>
 %<esperanto>\ProvidesFile{esperanto.bdf}
 %<finnish>%% Language definitions for Finnish by
-%<finnish>%%   Taneli Huuskonen <huuskone@cc.helsinki.fi>
+%<finnish>%%   Taneli Huuskonen <huuskone@cc.helsinki.fi> and
+%<finnish>%%   Timo Kalliom\"aki <timoka10@gmail.com>
 %<finnish>\ProvidesFile{finnish.bdf}
 %<french>\ProvidesFile{french.bdf}
 %<galician>%% Language definitions for Galician by
@@ -948,20 +949,31 @@
 %<swedish>%%   Hans Fredrik Nordhaug <hansfn@mi.uib.no> and
 %<swedish>%%   Erik \"Osthols <erik.osthols@gmail.com>
 %<swedish>\ProvidesFile{swedish.bdf}
+%<turkish>%% Language definitions for Turkish by
+%<turkish>%%   Ahmed Zahid Demirciler <ahmed.demirciler@gmail.com>
+%<turkish>\ProvidesFile{turkish.bdf}
 %    \end{macrocode}
 % Version information unique for all generated files:
 %    \begin{macrocode}
-%<latex>  [2020/10/29 v1.33  babelbib: multilingual bibliographies (HH)]
-%<bst>%% 2020/10/29 v1.33  babelbib: multilingual bibliographies (HH)
+%<latex>  [2021/01/06 v1.34  babelbib: multilingual bibliographies]
+%<bst>%% 2021/01/06 v1.34  babelbib: multilingual bibliographies
 %    \end{macrocode}
 %
 % \subsection{The package itself}
 %
+% \begin{macro}{\bbbbifpackageloaded}
+% \changes{1.34}{2021/01/06}{Bug with explicitely loaded language fixed}%
+% Define a copy of \cs{@ifpackageloaded} without \@\ in the name to avoid
+% issues with bdf files loaded either within the package or outside.
+%    \begin{macrocode}
+%<*package>
+\let\bbbbifpackageloaded=\@ifpackageloaded
+%    \end{macrocode}
+% \end{macro}
 % \index{fixlanguage=\texttt{fixlanguage}|main}%
 % Define an option which fixes the language in the bibliography to the
 % main language of the document.
 %    \begin{macrocode}
-%<*package>
 \newif\ifbbbbfixlanguage
 \DeclareOption{fixlanguage}{\bbbbfixlanguagetrue}
 \DeclareOption{varlanguage}{\bbbbfixlanguagefalse}
@@ -972,7 +984,7 @@
 % If this option is used, generate the commands
 % \cs{btxlanguagename}\meta{language} that save how languages are
 % called in other languages, e.\,g. in German, French is called
-% \foreignlanguage{ngerman}{"`französisch"'}.
+% \foreignlanguage{ngerman}{"`franz\"osisch"'}.
 %    \begin{macrocode}
 \newif\ifbbbblanguagenames
 \DeclareOption{nolanguagenames}{\bbbblanguagenamesfalse}
@@ -1045,6 +1057,8 @@
 %    \begin{macrocode}
 \DeclareOption*{%
   \InputIfFileExists{\CurrentOption.bdf}{%
+    \typeout{babelbib: \CurrentOption.bdf loaded due to explicit package
+      option \CurrentOption}%
     \expandafter\def\csname bbbb\CurrentOption loaded\endcsname{\@empty}%
   }{%
     \PackageError{babelbib}{%
@@ -1086,7 +1100,7 @@
 %    \begin{macrocode}
 \newcommand\bbbbaddto[2]{%
 %    \end{macrocode}
-% Test wheather  |\extras#1| is defined.
+% Test whether  |\extras#1| is defined.
 %    \begin{macrocode}
   \expandafter\bbbbifundefined{extras#1}{}{%
 %    \end{macrocode}
@@ -1108,7 +1122,7 @@
 %    \end{macrocode}
 % \changes{0.43}{2004/01/05}{Test on \cs{date}\meta{language} instead on
 %   \cs{l@}\meta{language} (caused problems with \TeX Live)}%
-% Test wheather |\date#1| is defined which is the case if the language
+% Test whether |\date#1| is defined which is the case if the language
 % |#1| has been loaded.
 %    \begin{macrocode}
   \bbbbifundefined{date#1}{}{%
@@ -1117,6 +1131,7 @@
 %    \begin{macrocode}
     \@ifundefined{bbbb#2loaded}{%
       \expandafter\def\csname bbbb#2loaded\endcsname{\@empty}%
+      \typeout{babelbib: #2.bdf loaded because language #2 defined.}%
       \input{#2.bdf}%
     }{}%
   }%
@@ -1153,7 +1168,7 @@
   }
 %    \end{macrocode}
 % Define the ``real'' command that does the action.
-% It tests wheather |\bibs#1| and |\extras#1| are known and produces
+% It tests whether |\bibs#1| and |\extras#1| are known and produces
 % error messages if not.
 % If everything is okay, change the bibliography language.
 %    \begin{macrocode}
@@ -1527,7 +1542,7 @@
 %    \end{macrocode}
 % \end{macro}
 % \begin{macro}{\btx@ifnumerical}
-% Test wheather argument 1 is a number (from KOMA script)
+% Test whether argument 1 is a number (from KOMA script)
 %    \begin{macrocode}
 \providecommand\ifnumber[3]{%
  \begingroup\@tempswafalse\let\scr@next\test@number
@@ -1622,6 +1637,29 @@
     \ifnumber{#2}{%
       \setcounter{btxromaniannumeral}{#2}%
       \ifcase#2 0\or \thebtxromaniannumeral\else a \thebtxromaniannumeral-a \fi
+    }{#2}%
+  }%
+}
+%    \end{macrocode}
+% \end{macro}
+% \begin{macro}{\btxnumeralfrench}
+% \changes{1.34}{2021/01/06}{Moved \cs{btxnumeralfrench} into the style file}%
+%    \begin{macrocode}
+\DeclareRobustCommand\btxnumeralfrench[2]{%
+  \foreignlanguage{#1}{%
+    \ifnumber{#2}{%
+      \expandafter\btx@parsenum#2\@empty\@empty\@empty
+      \btxnumeralfont{%
+        \ifx\btx@digitb\@empty
+          \ifcase\btx@digita \ieme\or \iere\else \ieme\fi
+        \else
+          \ifnum\btx@digita=1
+            th%
+          \else
+            \ifcase\btx@digitb \ieme\or \iere\else \ieme\fi
+          \fi
+        \fi
+        }%
     }{#2}%
   }%
 }
@@ -1726,6 +1764,7 @@
   \inputbdf{serbian}{serbian}
   \inputbdf{spanish}{spanish}
   \inputbdf{swedish}{swedish}
+  \inputbdf{turkish}{turkish}
   \inputbdf{UKenglish}{english}
   \inputbdf{USenglish}{english}
 %    \end{macrocode}
@@ -1797,6 +1836,8 @@
   \def\btxeditorslong##1{\protect\foreignlanguage{#1}{Herausgeber}}%
   \def\btxvolumeshort##1{\protect\foreignlanguage{#1}{Bd##1{}}}%
   \def\btxvolumelong##1{\protect\foreignlanguage{#1}{Band}}%
+  \def\btxjvolumeshort##1{\protect\foreignlanguage{#1}{Jg##1{}}}%
+  \def\btxjvolumelong##1{\protect\foreignlanguage{#1}{Jahrgang}}%
   \def\btxnumbershort##1{\protect\foreignlanguage{#1}{Nr##1{}}}%
   \def\btxnumberlong##1{\protect\foreignlanguage{#1}{Nummer}}%
 %    \end{macrocode}
@@ -1868,6 +1909,8 @@
   \def\Btxeditorslong{\btxeditorslong}%
   \def\Btxvolumeshort{\btxvolumeshort}%
   \def\Btxvolumelong{\btxvolumelong}%
+  \def\Btxjvolumeshort{\btxjvolumeshort}%
+  \def\Btxjvolumelong{\btxjvolumelong}%
   \def\Btxnumbershort{\btxnumbershort}%
   \def\Btxnumberlong{\btxnumberlong}%
   \def\Btxeditionshort{\btxeditionshort}%
@@ -2060,6 +2103,8 @@
   \def\btxeditorslong##1{\protect\foreignlanguage{#1}{editores}}%
   \def\btxvolumeshort##1{\protect\foreignlanguage{#1}{vol##1{}}}%
   \def\btxvolumelong##1{\protect\foreignlanguage{#1}{volume}}%
+  \def\btxjvolumeshort##1{\protect\foreignlanguage{#1}{vol##1{}}}%
+  \def\btxjvolumelong##1{\protect\foreignlanguage{#1}{volume}}%
   \def\btxnumbershort##1{\protect\foreignlanguage{#1}{%
       n\textsuperscript{\underline{o}}}}%
   \def\btxnumberlong##1{\protect\foreignlanguage{#1}{n\'umero}}%
@@ -2109,6 +2154,8 @@
   \def\Btxeditorslong##1{\protect\foreignlanguage{#1}{Editores}}%
   \def\Btxvolumeshort##1{\protect\foreignlanguage{#1}{Vol##1{}}}%
   \def\Btxvolumelong##1{\protect\foreignlanguage{#1}{Volume}}%
+  \def\Btxjvolumeshort##1{\protect\foreignlanguage{#1}{Vol##1{}}}%
+  \def\Btxjvolumelong##1{\protect\foreignlanguage{#1}{Volume}}%
   \def\Btxnumbershort##1{\protect\foreignlanguage{#1}{%
       N\textsuperscript{\underline{o}}}}%
   \def\Btxnumberlong##1{\protect\foreignlanguage{#1}{N\'umero}}%
@@ -2208,9 +2255,7 @@
 % |french.sty| already defines \cs{bibsenglish}. 
 % In this case it has to be redefined, otherwise newly defined.
 %    \begin{macrocode}
-\makeatletter
-\@ifpackageloaded{french}{}{\newcommand\bibsenglish{}}
-\makeatother
+\bbbbifpackageloaded{french}{}{\newcommand\bibsenglish{}}
 %    \end{macrocode}
 % \changes{0.2}{2003/04/20}{Changed some abbreviations}%
 % Bibliographic commands for English.
@@ -2234,6 +2279,8 @@
   \def\btxeditorslong##1{\protect\foreignlanguage{#1}{editors}}%
   \def\btxvolumeshort##1{\protect\foreignlanguage{#1}{vol##1{}}}%
   \def\btxvolumelong##1{\protect\foreignlanguage{#1}{volume}}%
+  \def\btxjvolumeshort##1{\protect\foreignlanguage{#1}{vol##1{}}}%
+  \def\btxjvolumelong##1{\protect\foreignlanguage{#1}{volume}}%
   \def\btxnumbershort##1{\protect\foreignlanguage{#1}{no##1{}}}%
   \def\btxnumberlong##1{\protect\foreignlanguage{#1}{number}}%
   \def\btxeditionshort##1{\protect\foreignlanguage{#1}{ed##1{}}}%
@@ -2282,6 +2329,8 @@
   \def\Btxeditorslong##1{\protect\foreignlanguage{#1}{Editors}}%
   \def\Btxvolumeshort##1{\protect\foreignlanguage{#1}{Vol##1{}}}%
   \def\Btxvolumelong##1{\protect\foreignlanguage{#1}{Volume}}%
+  \def\Btxjvolumeshort##1{\protect\foreignlanguage{#1}{Vol##1{}}}%
+  \def\Btxjvolumelong##1{\protect\foreignlanguage{#1}{Volume}}%
   \def\Btxnumbershort##1{\protect\foreignlanguage{#1}{No##1{}}}%
   \def\Btxnumberlong##1{\protect\foreignlanguage{#1}{Number}}%
   \def\Btxeditionshort##1{\protect\foreignlanguage{#1}{Ed##1{}}}%
@@ -2422,6 +2471,8 @@
   \def\btxeditorslong##1{\protect\foreignlanguage{#1}{curatori}}%
   \def\btxvolumeshort##1{\protect\foreignlanguage{#1}{vol##1{}}}%
   \def\btxvolumelong##1{\protect\foreignlanguage{#1}{volume}}%
+  \def\btxjvolumeshort##1{\protect\foreignlanguage{#1}{vol##1{}}}%
+  \def\btxjvolumelong##1{\protect\foreignlanguage{#1}{volume}}%
   \def\btxnumbershort##1{\protect\foreignlanguage{#1}{no##1{}}}%
   \def\btxnumberlong##1{\protect\foreignlanguage{#1}{numero}}%
   \def\btxeditionshort##1{\protect\foreignlanguage{#1}{ed##1{}}}%
@@ -2470,6 +2521,8 @@
   \def\Btxeditorslong##1{\protect\foreignlanguage{#1}{Curatori}}%
   \def\Btxvolumeshort##1{\protect\foreignlanguage{#1}{Vol##1{}}}%
   \def\Btxvolumelong##1{\protect\foreignlanguage{#1}{Volume}}%
+  \def\Btxjvolumeshort##1{\protect\foreignlanguage{#1}{Vol##1{}}}%
+  \def\Btxjvolumelong##1{\protect\foreignlanguage{#1}{Volume}}%
   \def\Btxnumbershort##1{\protect\foreignlanguage{#1}{No##1{}}}%
   \def\Btxnumberlong##1{\protect\foreignlanguage{#1}{Numero}}%
   \def\Btxeditionshort##1{\protect\foreignlanguage{#1}{Ed##1{}}}%
@@ -2594,6 +2647,8 @@
   \def\btxeditorslong##1{\protect\foreignlanguage{#1}{epimelht'ec}}%
   \def\btxvolumeshort##1{\protect\foreignlanguage{#1}{t'om##1{}}}%
   \def\btxvolumelong##1{\protect\foreignlanguage{#1}{t'omoc}}%
+  \def\btxjvolumeshort##1{\protect\foreignlanguage{#1}{'et##1{}}}%
+  \def\btxjvolumelong##1{\protect\foreignlanguage{#1}{'etoc}}%
   \def\btxnumbershort##1{\protect\foreignlanguage{#1}{ar##1{}}}%
   \def\btxnumberlong##1{\protect\foreignlanguage{#1}{arijm'oc}}%
   \def\btxeditionshort##1{\protect\foreignlanguage{#1}{'ekd##1{}}}%
@@ -2642,6 +2697,8 @@
   \def\Btxeditorslong##1{\protect\foreignlanguage{#1}{Epimelht'ec}}%
   \def\Btxvolumeshort##1{\protect\foreignlanguage{#1}{T'om##1{}}}%
   \def\Btxvolumelong##1{\protect\foreignlanguage{#1}{T'omoc}}%
+  \def\Btxjvolumeshort##1{\protect\foreignlanguage{#1}{'Etom##1{}}}%
+  \def\Btxjvolumelong##1{\protect\foreignlanguage{#1}{'Etoc}}%
   \def\Btxnumbershort##1{\protect\foreignlanguage{#1}{Ar##1{}}}%
   \def\Btxnumberlong##1{\protect\foreignlanguage{#1}{Arijm'oc}}%
   \def\Btxeditionshort##1{\protect\foreignlanguage{#1}{'Ekd##1{}}}%
@@ -2764,6 +2821,8 @@
   \def\btxeditorslong##1{\protect\foreignlanguage{#1}{redakt\o rer}}%
   \def\btxvolumeshort##1{\protect\foreignlanguage{#1}{bd##1{}}}%
   \def\btxvolumelong##1{\protect\foreignlanguage{#1}{bind}}%
+  \def\btxjvolumeshort##1{\protect\foreignlanguage{#1}{vol##1{}}}%
+  \def\btxjvolumelong##1{\protect\foreignlanguage{#1}{volum}}%
   \def\btxnumbershort##1{\protect\foreignlanguage{#1}{nr##1{}}}%
   \def\btxnumberlong##1{\protect\foreignlanguage{#1}{nummer}}%
   \def\btxeditionshort##1{\protect\foreignlanguage{#1}{utg##1{}}}%
@@ -2812,6 +2871,8 @@
   \def\Btxeditorslong##1{\protect\foreignlanguage{#1}{Redakt\o rer}}%
   \def\Btxvolumeshort##1{\protect\foreignlanguage{#1}{Bd##1{}}}%
   \def\Btxvolumelong##1{\protect\foreignlanguage{#1}{Bind}}%
+  \def\Btxjvolumeshort##1{\protect\foreignlanguage{#1}{Vol##1{}}}%
+  \def\Btxjvolumelong##1{\protect\foreignlanguage{#1}{Volum}}%
   \def\Btxnumbershort##1{\protect\foreignlanguage{#1}{Nr##1{}}}%
   \def\Btxnumberlong##1{\protect\foreignlanguage{#1}{Nummer}}%
   \def\Btxeditionshort##1{\protect\foreignlanguage{#1}{Utg##1{}}}%
@@ -2915,9 +2976,7 @@
 % |french.sty| already defines \cs{bibsfrench}. 
 % In this case it has to be redefined, otherwise newly defined.
 %    \begin{macrocode}
-\makeatletter
-\@ifpackageloaded{french}{}{\newcommand\bibsfrench{}}
-\makeatother
+\bbbbifpackageloaded{french}{}{\newcommand\bibsfrench{}}
 %    \end{macrocode}
 % Bibliographic commands for French.
 %    \begin{macrocode}
@@ -2940,6 +2999,8 @@
   \def\btxeditorslong##1{\protect\foreignlanguage{#1}{r\'edacteurs}}%
   \def\btxvolumeshort##1{\protect\foreignlanguage{#1}{t##1{}}}%
   \def\btxvolumelong##1{\protect\foreignlanguage{#1}{tome}}%
+  \def\btxjvolumeshort##1{\protect\foreignlanguage{#1}{vol##1{}}}%
+  \def\btxjvolumelong##1{\protect\foreignlanguage{#1}{volume}}%
   \def\btxnumbershort##1{\protect\foreignlanguage{#1}{%
       n\textsuperscript{o}\kern.2em\relax{}}}%
   \def\btxnumberlong##1{\protect\foreignlanguage{#1}{num\'ero}}%
@@ -2989,6 +3050,8 @@
   \def\Btxeditorslong##1{\protect\foreignlanguage{#1}{R\'edacteurs}}%
   \def\Btxvolumeshort##1{\protect\foreignlanguage{#1}{T##1{}}}%
   \def\Btxvolumelong##1{\protect\foreignlanguage{#1}{Tome}}%
+  \def\Btxjvolumeshort##1{\protect\foreignlanguage{#1}{Vol##1{}}}%
+  \def\Btxjvolumelong##1{\protect\foreignlanguage{#1}{Volume}}%
   \def\Btxnumbershort##1{\protect\foreignlanguage{#1}{%
       N\textsuperscript{o}\kern.2em\relax}}%
   \def\Btxnumberlong##1{\protect\foreignlanguage{#1}{Num\'ero}}%
@@ -3092,30 +3155,7 @@
   \bbbbaddto{canadien}{btxifchangecaseoff}
 }
 %    \end{macrocode}
-% \begin{macro}{\btxnumeralfrench}
-%    \begin{macrocode}
-\makeatletter
-\DeclareRobustCommand\btxnumeralfrench[2]{%
-  \foreignlanguage{#1}{%
-    \ifnumber{#2}{%
-      \expandafter\btx@parsenum#2\@empty\@empty\@empty
-      \btxnumeralfont{%
-        \ifx\btx@digitb\@empty
-          \ifcase\btx@digita \ieme\or \iere\else \ieme\fi
-        \else
-          \ifnum\btx@digita=1
-            th%
-          \else
-            \ifcase\btx@digitb \ieme\or \iere\else \ieme\fi
-          \fi
-        \fi
-        }%
-    }{#2}%
-  }%
-}
-\makeatother
-%    \end{macrocode}
-% \end{macro}
+% \changes{1.34}{2021/01/06}{Moved \cs{btxnumeralfrench} into the style file}%
 % \changes{0.43}{2004/01/06}{Warn if using \texttt{french} language}%
 % \changes{0.44}{2004/01/06}{Only warn if babel version is too old}%
 % \changes{1.00}{2005/02/16}{Remove warning for old babel package with
@@ -3152,6 +3192,8 @@
   \def\btxeditorslong##1{\protect\foreignlanguage{#1}{editori}}%
   \def\btxvolumeshort##1{\protect\foreignlanguage{#1}{vol##1{}}}%
   \def\btxvolumelong##1{\protect\foreignlanguage{#1}{volumul}}%
+  \def\btxjvolumeshort##1{\protect\foreignlanguage{#1}{an##1{}}}%
+  \def\btxjvolumelong##1{\protect\foreignlanguage{#1}{anul}}%
   \def\btxnumbershort##1{\protect\foreignlanguage{#1}{nr##1{}}}%
   \def\btxnumberlong##1{\protect\foreignlanguage{#1}{num\~{a}rul}}%
   \def\btxeditionshort##1{\protect\foreignlanguage{#1}{Ed{##1}}}%
@@ -3201,6 +3243,8 @@
   \def\Btxeditorslong##1{\protect\foreignlanguage{#1}{Editori}}%
   \def\Btxvolumeshort##1{\protect\foreignlanguage{#1}{Vol##1{}}}%
   \def\Btxvolumelong##1{\protect\foreignlanguage{#1}{Volumul}}%
+  \def\Btxjvolumeshort##1{\protect\foreignlanguage{#1}{An##1{}}}%
+  \def\Btxjvolumelong##1{\protect\foreignlanguage{#1}{Anul}}%
   \def\Btxnumbershort##1{\protect\foreignlanguage{#1}{Nr##1{}}}%
   \def\Btxnumberlong##1{\protect\foreignlanguage{#1}{Num\~{a}}}%
   \def\Btxeditionshort##1{\protect\foreignlanguage{#1}{\hskip-1.5ex}}%
@@ -3328,6 +3372,9 @@
   \def\btxvolumeshort##1{\protect\foreignlanguage{#1}{\IeC {\cyrt }.##1{}}}%
   \def\btxvolumelong##1{\protect\foreignlanguage{#1}{\IeC {\cyrt }\IeC
       {\cyro }\IeC {\cyrm }}}%
+  \def\btxjvolumeshort##1{\protect\foreignlanguage{#1}{\IeC {\cyrt }.##1{}}}%
+  \def\btxjvolumelong##1{\protect\foreignlanguage{#1}{\IeC {\cyrt }\IeC
+      {\cyro }\IeC {\cyrm }}}%
   \def\btxnumbershort##1{\protect\foreignlanguage{#1}{%
       n\textsuperscript{\underline{o}}}}%
   \def\btxnumberlong##1{\protect\foreignlanguage{#1}{\IeC {\cyrn }\IeC
@@ -3440,6 +3487,9 @@
       }\IeC {\cyro }\IeC {\cyrr }\IeC {\cyrery }}}%
   \def\Btxvolumeshort##1{\protect\foreignlanguage{#1}{\IeC {\CYRT }.##1{}}}%
   \def\Btxvolumelong##1{\protect\foreignlanguage{#1}{\IeC {\CYRT }\IeC
+      {\cyro }\IeC {\cyrm }}}%
+  \def\Btxjvolumeshort##1{\protect\foreignlanguage{#1}{\IeC {\CYRT }.##1{}}}%
+  \def\Btxjvolumelong##1{\protect\foreignlanguage{#1}{\IeC {\CYRT }\IeC
       {\cyro }\IeC {\cyrm }}}%
   \def\Btxnumbershort##1{\protect\foreignlanguage{#1}{%
       N\textsuperscript{\underline{o}}}}%
@@ -3703,6 +3753,8 @@
   \def\btxeditorslong##1{\protect\foreignlanguage{#1}{urednici}}%
   \def\btxvolumeshort##1{\protect\foreignlanguage{#1}{tm.##1{}}}%
   \def\btxvolumelong##1{\protect\foreignlanguage{#1}{tom}}%
+  \def\btxjvolumeshort##1{\protect\foreignlanguage{#1}{god.##1{}}}%
+  \def\btxjvolumelong##1{\protect\foreignlanguage{#1}{godina}}%
   \def\btxnumbershort##1{\protect\foreignlanguage{#1}{br.##1{}}}%
   \def\btxnumberlong##1{\protect\foreignlanguage{#1}{broj}}%
   \def\btxeditionshort##1{\protect\foreignlanguage{#1}{ed.##1{}}}%
@@ -3752,6 +3804,8 @@
   \def\Btxeditorslong##1{\protect\foreignlanguage{#1}{Urednici}}%
   \def\Btxvolumeshort##1{\protect\foreignlanguage{#1}{Tm.##1{}}}%
   \def\Btxvolumelong##1{\protect\foreignlanguage{#1}{Tom}}%
+  \def\Btxjvolumeshort##1{\protect\foreignlanguage{#1}{God.##1{}}}%
+  \def\Btxjvolumelong##1{\protect\foreignlanguage{#1}{Godina}}%
   \def\Btxnumbershort##1{\protect\foreignlanguage{#1}{Br.##1{}}}%
   \def\Btxnumberlong##1{\protect\foreignlanguage{#1}{Broj}}%
   \def\Btxeditionshort##1{\protect\foreignlanguage{#1}{Ed.##1{}}}%
@@ -3839,7 +3893,8 @@
 %
 % \subsubsection{Spanish}
 % \changes{0.33}{2003/05/22}{Added Spanish language}%
-% \changes{1.32}{2019/03/11}{Corrected Spanish abbrevs (by Pablo Daniel Pareja Obregon)}%
+% \changes{1.32}{2019/03/11}{Corrected Spanish abbrevs (by Pablo Daniel Pareja
+%   Obregon)}%
 %    \begin{macrocode}
 %<*spanish>
 %    \end{macrocode}
@@ -3870,6 +3925,8 @@
   \def\btxeditorslong##1{\protect\foreignlanguage{#1}{editores}}%
   \def\btxvolumeshort##1{\protect\foreignlanguage{#1}{vol##1{}}}%
   \def\btxvolumelong##1{\protect\foreignlanguage{#1}{volumen}}%
+  \def\btxjvolumeshort##1{\protect\foreignlanguage{#1}{vol##1{}}}%
+  \def\btxjvolumelong##1{\protect\foreignlanguage{#1}{volumen}}%
   \def\btxnumbershort##1{\protect\foreignlanguage{#1}{%
       n\textsuperscript{\underline{o}}}}%
   \def\btxnumberlong##1{\protect\foreignlanguage{#1}{n\'umero}}%
@@ -3919,6 +3976,8 @@
   \def\Btxeditorslong##1{\protect\foreignlanguage{#1}{Editores}}%
   \def\Btxvolumeshort##1{\protect\foreignlanguage{#1}{Vol##1{}}}%
   \def\Btxvolumelong##1{\protect\foreignlanguage{#1}{Volumen}}%
+  \def\Btxjvolumeshort##1{\protect\foreignlanguage{#1}{Vol##1{}}}%
+  \def\Btxjvolumelong##1{\protect\foreignlanguage{#1}{Volumen}}%
   \def\Btxnumbershort##1{\protect\foreignlanguage{#1}{%
       N\textsuperscript{\underline{o}}}}%
   \def\Btxnumberlong##1{\protect\foreignlanguage{#1}{N\'umero}}%
@@ -3944,7 +4003,7 @@
 %    \end{macrocode}
 % \changes{1.31}{2012/01/03}{Fix definition of \cs{btxnumerallong} in
 %   Spanish}
-% Bug and solution for \cs{btxnumerallong} reported by Iago Quiñones
+% Bug and solution for \cs{btxnumerallong} reported by Iago Qui\~nones
 %    \begin{macrocode}
   \def\btxnumerallong##1{\btxnumeralshort{##1}}%
 %    \end{macrocode}
@@ -4051,6 +4110,8 @@
   \def\btxeditorslong##1{\protect\foreignlanguage{#1}{edito\v{r}i}}%
   \def\btxvolumeshort##1{\protect\foreignlanguage{#1}{sv##1{}}}%
   \def\btxvolumelong##1{\protect\foreignlanguage{#1}{svazek}}%
+  \def\btxjvolumeshort##1{\protect\foreignlanguage{#1}{ro\v{c}##1{}}}%
+  \def\btxjvolumelong##1{\protect\foreignlanguage{#1}{ro\v{c}n\'ik}}%
   \def\btxnumbershort##1{\protect\foreignlanguage{#1}{\v{c}##1{}}}%
   \def\btxnumberlong##1{\protect\foreignlanguage{#1}{\v{c}\'islo}}%
   \def\btxeditionshort##1{\protect\foreignlanguage{#1}{ed##1{}}}%
@@ -4099,6 +4160,8 @@
   \def\Btxeditorslong##1{\protect\foreignlanguage{#1}{Edito\v{r}i}}%
   \def\Btxvolumeshort##1{\protect\foreignlanguage{#1}{Sv##1{}}}%
   \def\Btxvolumelong##1{\protect\foreignlanguage{#1}{Svazek}}%
+  \def\Btxjvolumeshort##1{\protect\foreignlanguage{#1}{Ro\v{c}##1{}}}%
+  \def\Btxjvolumelong##1{\protect\foreignlanguage{#1}{Ro\v{c}n\'ik}}%
   \def\Btxnumbershort##1{\protect\foreignlanguage{#1}{\v{C}##1{}}}%
   \def\Btxnumberlong##1{\protect\foreignlanguage{#1}{\v{C}\'islo}}%
   \def\Btxeditionshort##1{\protect\foreignlanguage{#1}{Ed##1{}}}%
@@ -4216,6 +4279,8 @@
   \def\btxeditorslong##1{\protect\foreignlanguage{#1}{redakt\o rer}}%
   \def\btxvolumeshort##1{\protect\foreignlanguage{#1}{bd##1{}}}%
   \def\btxvolumelong##1{\protect\foreignlanguage{#1}{bind}}%
+  \def\btxjvolumeshort##1{\protect\foreignlanguage{#1}{\aa rg##1{}}}%
+  \def\btxjvolumelong##1{\protect\foreignlanguage{#1}{\aa rgang}}%
   \def\btxnumbershort##1{\protect\foreignlanguage{#1}{nr##1{}}}%
   \def\btxnumberlong##1{\protect\foreignlanguage{#1}{nummer}}%
   \def\btxeditionshort##1{\protect\foreignlanguage{#1}{udg##1{}}}%
@@ -4264,6 +4329,8 @@
   \def\Btxeditorslong##1{\protect\foreignlanguage{#1}{Redakt\o rer}}%
   \def\Btxvolumeshort##1{\protect\foreignlanguage{#1}{Bd##1{}}}%
   \def\Btxvolumelong##1{\protect\foreignlanguage{#1}{Bind}}%
+  \def\Btxjvolumeshort##1{\protect\foreignlanguage{#1}{\Aa rg##1{}}}%
+  \def\Btxjvolumelong##1{\protect\foreignlanguage{#1}{\Aa rgang}}%
   \def\Btxnumbershort##1{\protect\foreignlanguage{#1}{Nr##1{}}}%
   \def\Btxnumberlong##1{\protect\foreignlanguage{#1}{Nummer}}%
   \def\Btxeditionshort##1{\protect\foreignlanguage{#1}{Udg##1{}}}%
@@ -4376,7 +4443,9 @@
   \def\btxeditorslong##1{\protect\foreignlanguage{#1}{toimittajat}}%
   \def\btxvolumeshort##1{\protect\foreignlanguage{#1}{nide}}%
   \def\btxvolumelong##1{\protect\foreignlanguage{#1}{nide}}%
-  \def\btxnumbershort##1{\protect\foreignlanguage{#1}{nro##1{}}}%
+  \def\btxjvolumeshort##1{\protect\foreignlanguage{#1}{vsk##1{}}}%
+  \def\btxjvolumelong##1{\protect\foreignlanguage{#1}{vuosikerta}}%
+  \def\btxnumbershort##1{\protect\foreignlanguage{#1}{nro}}%
   \def\btxnumberlong##1{\protect\foreignlanguage{#1}{numero}}%
   \def\btxeditionshort##1{\protect\foreignlanguage{#1}{p##1{}}}%
   \def\btxeditionlong##1{\protect\foreignlanguage{#1}{painos}}%
@@ -4386,7 +4455,7 @@
   \def\btxchapterlong##1{\protect\foreignlanguage{#1}{luku}}%
   \def\btxpageshort##1{\protect\foreignlanguage{#1}{s##1{}}}%
   \def\btxpagelong##1{\protect\foreignlanguage{#1}{sivu}}%
-  \def\btxpagesshort##1{\protect\foreignlanguage{#1}{ss##1{}}}%
+  \def\btxpagesshort##1{\protect\foreignlanguage{#1}{s##1{}}}%
   \def\btxpageslong##1{\protect\foreignlanguage{#1}{sivut}}%
   \def\btxmastthesis##1{\protect\foreignlanguage{#1}{Pro Gradu -ty\"o}}%
   \def\btxphdthesis##1{\protect\foreignlanguage{#1}{v\"ait\"oskirja}}%
@@ -4422,9 +4491,11 @@
   \def\Btxeditorlong##1{\protect\foreignlanguage{#1}{Toimittaja}}%
   \def\Btxeditorsshort##1{\protect\foreignlanguage{#1}{Toim##1{}}}%
   \def\Btxeditorslong##1{\protect\foreignlanguage{#1}{Toimittajat}}%
-  \def\Btxvolumeshort##1{\protect\foreignlanguage{#1}{Nide##1{}}}%
+  \def\Btxvolumeshort##1{\protect\foreignlanguage{#1}{Nide}}%
   \def\Btxvolumelong##1{\protect\foreignlanguage{#1}{Nide}}%
-  \def\Btxnumbershort##1{\protect\foreignlanguage{#1}{Nro##1{}}}%
+  \def\Btxjvolumeshort##1{\protect\foreignlanguage{#1}{Vsk##1{}}}%
+  \def\Btxjvolumelong##1{\protect\foreignlanguage{#1}{Vuosikerta}}%
+  \def\Btxnumbershort##1{\protect\foreignlanguage{#1}{Nro}}%
   \def\Btxnumberlong##1{\protect\foreignlanguage{#1}{Numero}}%
   \def\Btxeditionshort##1{\protect\foreignlanguage{#1}{P##1{}}}%
   \def\Btxeditionlong##1{\protect\foreignlanguage{#1}{Painos}}%
@@ -4434,7 +4505,7 @@
   \def\Btxchapterlong##1{\protect\foreignlanguage{#1}{Luku}}%
   \def\Btxpageshort##1{\protect\foreignlanguage{#1}{S##1{}}}%
   \def\Btxpagelong##1{\protect\foreignlanguage{#1}{Sivu}}%
-  \def\Btxpagesshort##1{\protect\foreignlanguage{#1}{Ss##1{}}}%
+  \def\Btxpagesshort##1{\protect\foreignlanguage{#1}{S##1{}}}%
   \def\Btxpageslong##1{\protect\foreignlanguage{#1}{Sivut}}%
   \def\Btxtechrepshort##1{\protect\foreignlanguage{#1}{Tekn.\ rap##1{}}}%
   \def\Btxtechreplong##1{\protect\foreignlanguage{#1}{Tekninen raportti}}%
@@ -4540,6 +4611,8 @@
   \def\btxeditorslong##1{\protect\foreignlanguage{#1}{redaktoroj}}%
   \def\btxvolumeshort##1{\protect\foreignlanguage{#1}{vol##1{}}}%
   \def\btxvolumelong##1{\protect\foreignlanguage{#1}{volumo}}%
+  \def\btxjvolumeshort##1{\protect\foreignlanguage{#1}{vol##1{}}}%
+  \def\btxjvolumelong##1{\protect\foreignlanguage{#1}{volumo}}%
   \def\btxnumbershort##1{\protect\foreignlanguage{#1}{no##1{}}}%
   \def\btxnumberlong##1{\protect\foreignlanguage{#1}{nombro}}%
   \def\btxeditionshort##1{\protect\foreignlanguage{#1}{red##1{}}}%
@@ -4588,6 +4661,8 @@
   \def\Btxeditorslong##1{\protect\foreignlanguage{#1}{Redaktoroj}}%
   \def\Btxvolumeshort##1{\protect\foreignlanguage{#1}{Vol##1{}}}%
   \def\Btxvolumelong##1{\protect\foreignlanguage{#1}{Volumo}}%
+  \def\Btxjvolumeshort##1{\protect\foreignlanguage{#1}{Vol##1{}}}%
+  \def\Btxjvolumelong##1{\protect\foreignlanguage{#1}{Volumo}}%
   \def\Btxnumbershort##1{\protect\foreignlanguage{#1}{No##1{}}}%
   \def\Btxnumberlong##1{\protect\foreignlanguage{#1}{Nombro}}%
   \def\Btxeditionshort##1{\protect\foreignlanguage{#1}{Red##1{}}}%
@@ -4604,8 +4679,8 @@
   \def\Btxtechreplong##1{\protect\foreignlanguage{#1}{Teknika Raporto}}%
 %  \def\btxurldatecomment##1{\protect\foreignlanguage{#1}{, ?? ##1}}%
   \def\btxurldatecomment##1{\PackageError{babelbib}{Comment for
-      urldate in Esperanto undefined. Please send the translation for 
-      'visited on' to harald.harders@tu-bs.de}{} [##1]}%
+      urldate in Esperanto undefined. Please send the translation to the
+      authors}{} [##1]}%
   \def\btxfnamespaceshort{\,}%
   \def\btxfnamespacelong{ }%
   \def\btxnumeralshort##1{\btxnumeralfallback{#1}{##1}}%
@@ -4709,6 +4784,8 @@
   \def\btxeditorslong##1{\protect\foreignlanguage{#1}{editores}}%
   \def\btxvolumeshort##1{\protect\foreignlanguage{#1}{vol##1{}}}%
   \def\btxvolumelong##1{\protect\foreignlanguage{#1}{volume}}%
+  \def\btxjvolumeshort##1{\protect\foreignlanguage{#1}{vol##1{}}}%
+  \def\btxjvolumelong##1{\protect\foreignlanguage{#1}{volume}}%
   \def\btxnumbershort##1{\protect\foreignlanguage{#1}{%
       n\textsuperscript{\underline{o}}}}%
   \def\btxnumberlong##1{\protect\foreignlanguage{#1}{n\'umero}}%
@@ -4758,6 +4835,8 @@
   \def\Btxeditorslong##1{\protect\foreignlanguage{#1}{Editores}}%
   \def\Btxvolumeshort##1{\protect\foreignlanguage{#1}{Vol##1{}}}%
   \def\Btxvolumelong##1{\protect\foreignlanguage{#1}{Volume}}%
+  \def\Btxjvolumeshort##1{\protect\foreignlanguage{#1}{Vol##1{}}}%
+  \def\Btxjvolumelong##1{\protect\foreignlanguage{#1}{Volume}}%
   \def\Btxnumbershort##1{\protect\foreignlanguage{#1}{%
       N\textsuperscript{\underline{o}}}}%
   \def\Btxnumberlong##1{\protect\foreignlanguage{#1}{N\'umero}}%
@@ -4919,6 +4998,8 @@
   \def\btxeditorslong##1{\protect\foreignlanguage{#1}{redactie}}%
   \def\btxvolumeshort##1{\protect\foreignlanguage{#1}{vol##1{}}}%
   \def\btxvolumelong##1{\protect\foreignlanguage{#1}{volume}}%
+  \def\btxjvolumeshort##1{\protect\foreignlanguage{#1}{jrg##1{}}}%
+  \def\btxjvolumelong##1{\protect\foreignlanguage{#1}{jaargang}}%
   \def\btxnumbershort##1{\protect\foreignlanguage{#1}{nr##1{}}}%
   \def\btxnumberlong##1{\protect\foreignlanguage{#1}{nummer}}%
   \def\btxeditionshort##1{\protect\foreignlanguage{#1}{druk}}%
@@ -4967,6 +5048,8 @@
   \def\Btxeditorslong##1{\protect\foreignlanguage{#1}{Redactie}}%
   \def\Btxvolumeshort##1{\protect\foreignlanguage{#1}{Vol##1{}}}%
   \def\Btxvolumelong##1{\protect\foreignlanguage{#1}{Volume}}%
+  \def\Btxjvolumeshort##1{\protect\foreignlanguage{#1}{Jrg##1{}}}%
+  \def\Btxjvolumelong##1{\protect\foreignlanguage{#1}{Jaargang}}%
   \def\Btxnumbershort##1{\protect\foreignlanguage{#1}{Nr##1{}}}%
   \def\Btxnumberlong##1{\protect\foreignlanguage{#1}{Nummer}}%
   \def\Btxeditionshort##1{\protect\foreignlanguage{#1}{Druk}}%
@@ -5088,6 +5171,8 @@
   \def\btxeditorslong##1{\protect\foreignlanguage{#1}{redakt\"orer}}%
   \def\btxvolumeshort##1{\protect\foreignlanguage{#1}{vol##1{}}}%
   \def\btxvolumelong##1{\protect\foreignlanguage{#1}{volym}}%
+  \def\btxjvolumeshort##1{\protect\foreignlanguage{#1}{vol##1{}}}%
+  \def\btxjvolumelong##1{\protect\foreignlanguage{#1}{volym}}%
   \def\btxnumbershort##1{\protect\foreignlanguage{#1}{nr##1{}}}%
   \def\btxnumberlong##1{\protect\foreignlanguage{#1}{nummer}}%
   \def\btxeditionshort##1{\protect\foreignlanguage{#1}{utg}}%
@@ -5136,6 +5221,8 @@
   \def\Btxeditorslong##1{\protect\foreignlanguage{#1}{Redakt\"orer}}%
   \def\Btxvolumeshort##1{\protect\foreignlanguage{#1}{Vol##1{}}}%
   \def\Btxvolumelong##1{\protect\foreignlanguage{#1}{Volym}}%
+  \def\Btxjvolumeshort##1{\protect\foreignlanguage{#1}{Vol##1{}}}%
+  \def\Btxjvolumelong##1{\protect\foreignlanguage{#1}{Volym}}%
   \def\Btxnumbershort##1{\protect\foreignlanguage{#1}{Nr##1{}}}%
   \def\Btxnumberlong##1{\protect\foreignlanguage{#1}{Nummer}}%
   \def\Btxeditionshort##1{\protect\foreignlanguage{#1}{Utg}}%
@@ -5231,9 +5318,189 @@
 %</swedish>
 %    \end{macrocode}
 %
+% \subsubsection{Turkish}
+% \changes{1.34}{2021/01/06}{Added Turkish language}%
+%    \begin{macrocode}
+%<*turkish>
+%    \end{macrocode}
+%
+% The language definition for Turkish was provided Ahmed Zahid Demirciler.
+%
+% \begin{macro}{\bibsturkish}
+% Bibliographic commands for Turkish.
+%    \begin{macrocode}
+\newcommand\bibsturkish[1][turkish]{%
+  \def\biblanguagename{#1}%
+  \def\btxetalshort##1{\protect\foreignlanguage{#1}{vd##1{}}}%
+  \def\btxetallong##1{\protect\foreignlanguage{#1}{ve di\u{g}erleri}}%
+  \def\btxandshort##1{\protect\foreignlanguage{#1}{ve}}%
+  \def\btxandlong##1{\protect\foreignlanguage{#1}{ve}}%
+  \def\btxandcomma##1{}%
+  \def\btxinlong##1{\protect\foreignlanguage{#1}{i\c{c}inde}}%
+  \def\btxinshort##1{\protect\foreignlanguage{#1}{i\c{c}inde}}%
+  \def\btxofseriesshort##1{\protect\foreignlanguage{#1}{in}}%
+  \def\btxinseriesshort##1{\protect\foreignlanguage{#1}{i\c{c}inde}}%
+  \def\btxofserieslong##1{\protect\foreignlanguage{#1}{in}}%
+  \def\btxinserieslong##1{\protect\foreignlanguage{#1}{i\c{c}inde}}%
+  \def\btxeditorshort##1{\protect\foreignlanguage{#1}{ed##1{}}}%
+  \def\btxeditorlong##1{\protect\foreignlanguage{#1}{edit\"{o}r}}%
+  \def\btxeditorsshort##1{\protect\foreignlanguage{#1}{ed##1{}}}%
+  \def\btxeditorslong##1{\protect\foreignlanguage{#1}{edit\"{o}rler}}%
+  \def\btxvolumeshort##1{\protect\foreignlanguage{#1}{C##1{}}}%
+  \def\btxvolumelong##1{\protect\foreignlanguage{#1}{cilt}}%
+%  \def\btxjvolumeshort##1{\protect\foreignlanguage{#1}{C##1{}}}%
+%  \def\btxjvolumelong##1{\protect\foreignlanguage{#1}{cilt}}%
+  \def\btxjvolumeshort##1{\PackageError{babelbib}{Comment for
+      btxjvolumeshort in Turkish undefined. Please send the translation to the
+      authors}{} [##1]}%
+  \def\btxjvolumelong##1{\PackageError{babelbib}{Comment for
+      btxjvolumelong in Turkish undefined. Please send the translation to the
+      authors}{} [##1]}%
+  \def\btxnumbershort##1{\protect\foreignlanguage{#1}{S##1{}}}%
+  \def\btxnumberlong##1{\protect\foreignlanguage{#1}{say{\i}}}%
+  \def\btxeditionshort##1{\protect\foreignlanguage{#1}{bs##1{}}}%
+  \def\btxeditionlong##1{\protect\foreignlanguage{#1}{bas{\i}m}}%
+  \def\btxchaptershort##1{\protect\foreignlanguage{#1}{B\"{o}l##1{}}}%
+  \def\btxchapterlong##1{\protect\foreignlanguage{#1}{b\"{o}l\"{u}m}}%
+  \def\btxpageshort##1{\protect\foreignlanguage{#1}{s##1{}}}%
+  \def\btxpagelong##1{\protect\foreignlanguage{#1}{sayfa}}%
+  \def\btxpagesshort##1{\protect\foreignlanguage{#1}{sy##1{}}}%
+  \def\btxpageslong##1{\protect\foreignlanguage{#1}{sayfa}}%
+  \def\btxmastthesis##1{\protect\foreignlanguage{#1}{Y\"{u}ksek lisans tezi}}%
+  \def\btxphdthesis##1{\protect\foreignlanguage{#1}{Doktora tezi}}%
+  \def\btxtechrepshort##1{\protect\foreignlanguage{#1}{Rap##1{}}}%
+  \def\btxtechreplong##1{\protect\foreignlanguage{#1}{Rapor}}%
+  \def\btxmonjanlong##1{\protect\foreignlanguage{#1}{Ocak}}%
+  \def\btxmonfeblong##1{\protect\foreignlanguage{#1}{\c{S}ubat}}%
+  \def\btxmonmarlong##1{\protect\foreignlanguage{#1}{Mart}}%
+  \def\btxmonaprlong##1{\protect\foreignlanguage{#1}{Nisan}}%
+  \def\btxmonmaylong##1{\protect\foreignlanguage{#1}{May{\i}s}}%
+  \def\btxmonjunlong##1{\protect\foreignlanguage{#1}{Haziran}}%
+  \def\btxmonjullong##1{\protect\foreignlanguage{#1}{Temmuz}}%
+  \def\btxmonauglong##1{\protect\foreignlanguage{#1}{A\u{g}ustos}}%
+  \def\btxmonseplong##1{\protect\foreignlanguage{#1}{Eyl\"{u}l}}%
+  \def\btxmonoctlong##1{\protect\foreignlanguage{#1}{Ekim}}%
+  \def\btxmonnovlong##1{\protect\foreignlanguage{#1}{Kas{\i}m}}%
+  \def\btxmondeclong##1{\protect\foreignlanguage{#1}{Aral{\i}}}%
+  \def\btxmonjanshort##1{\protect\foreignlanguage{#1}{Oca##1{}}}%
+  \def\btxmonfebshort##1{\protect\foreignlanguage{#1}{\c{S}ub##1{}}}%
+  \def\btxmonmarshort##1{\protect\foreignlanguage{#1}{Mar##1{}}}%
+  \def\btxmonaprshort##1{\protect\foreignlanguage{#1}{Nis##1{}}}%
+  \def\btxmonmayshort##1{\protect\foreignlanguage{#1}{May}}%
+  \def\btxmonjunshort##1{\protect\foreignlanguage{#1}{Haz}}%
+  \def\btxmonjulshort##1{\protect\foreignlanguage{#1}{Tem}}%
+  \def\btxmonaugshort##1{\protect\foreignlanguage{#1}{A\u{g}u##1{}}}%
+  \def\btxmonsepshort##1{\protect\foreignlanguage{#1}{Eyl##1{}}}%
+  \def\btxmonoctshort##1{\protect\foreignlanguage{#1}{Eki##1{}}}%
+  \def\btxmonnovshort##1{\protect\foreignlanguage{#1}{Kas##1{}}}%
+  \def\btxmondecshort##1{\protect\foreignlanguage{#1}{Ara##1{}}}%
+  \def\Btxinlong##1{\protect\foreignlanguage{#1}{i\c{c}inde}}%
+  \def\Btxinshort##1{\protect\foreignlanguage{#1}{i\c{c}inde}}%
+  \def\Btxeditorshort##1{\protect\foreignlanguage{#1}{Ed##1{}}}%
+  \def\Btxeditorlong##1{\protect\foreignlanguage{#1}{Edit\"{o}r}}%
+  \def\Btxeditorsshort##1{\protect\foreignlanguage{#1}{Ed##1{}}}%
+  \def\Btxeditorslong##1{\protect\foreignlanguage{#1}{Edit\"{o}rler}}%
+  \def\Btxvolumeshort##1{\protect\foreignlanguage{#1}{C##1{}}}%
+  \def\Btxvolumelong##1{\protect\foreignlanguage{#1}{cilt}}%
+  \def\Btxjvolumeshort##1{\protect\foreignlanguage{#1}{C##1{}}}%
+  \def\Btxjvolumelong##1{\protect\foreignlanguage{#1}{cilt}}%
+  \def\Btxjvolumeshort##1{\PackageError{babelbib}{Comment for
+      btxjvolumeshort in Turkish undefined. Please send the translation to the
+      authors}{} [##1]}%
+  \def\Btxjvolumelong##1{\PackageError{babelbib}{Comment for
+      btxjvolumelong in Turkish undefined. Please send the translation to the
+      authors}{} [##1]}%
+  \def\Btxnumbershort##1{\protect\foreignlanguage{#1}{S##1{}}}%
+  \def\Btxnumberlong##1{\protect\foreignlanguage{#1}{say{\i}}}%
+  \def\Btxeditionshort##1{\protect\foreignlanguage{#1}{ed##1{}}}%
+  \def\Btxeditionlong##1{\protect\foreignlanguage{#1}{bas{\i}m}}%
+  \def\Btxchaptershort##1{\protect\foreignlanguage{#1}{B\"{o}l##1{}}}%
+  \def\Btxchapterlong##1{\protect\foreignlanguage{#1}{b\"{o}l\"{u}m}}%
+  \def\Btxpageshort##1{\protect\foreignlanguage{#1}{s##1{}}}%
+  \def\Btxpagelong##1{\protect\foreignlanguage{#1}{sayfa}}%
+  \def\Btxpagesshort##1{\protect\foreignlanguage{#1}{s##1{}}}%
+  \def\Btxpageslong##1{\protect\foreignlanguage{#1}{sayfalar}}%
+  \def\Btxtechrepshort##1{\protect\foreignlanguage{#1}{Rap##1{}}}%
+  \def\Btxtechreplong##1{\protect\foreignlanguage{#1}{Rapor}}%
+  \def\btxurldatecomment##1{\protect\foreignlanguage{#1}{, g\"{o}r\"{u}ld\"{u} ##1}}%
+  \def\btxfnamespaceshort{}%
+  \def\btxfnamespacelong{ }%
+  \def\btxnumeralshort##1{\protect\foreignlanguage{#1}{%
+      \ifnumber{##1}{##1\textsuperscript{\underline a}}{##1}}}%
+  \def\btxnumerallong##1{\btxnumeralshort{#1}{##1}}%
+%    \end{macrocode}
+% Define how to print month and year in numeric format, e.\,g. MM/YYYY.
+%    \begin{macrocode}
+  \def\btxprintmonthyearnum##1##2{##1/##2}%
+  \def\btxkeywordlanguage##1{{\protect\selectlanguage{#1}##1}}%
+  \ifbbbblanguagenames
+    \def\btxlanguagenameamerican{\protect\foreignlanguage{#1}{ingilizce}}%
+    \def\btxlanguagenameaustrian{\protect\foreignlanguage{#1}{almanca}}%
+    \def\btxlanguagenamebrazil{\protect\foreignlanguage{#1}{portekizce}}%
+    \def\btxlanguagenamebrazilian{\protect\foreignlanguage{#1}{portekizce}}%
+    \def\btxlanguagenamebritish{\protect\foreignlanguage{#1}{ingilizce}}%
+    \def\btxlanguagenamebulgarian{\protect\foreignlanguage{#1}{bulgarca}}%
+    \def\btxlanguagenamecanadian{\protect\foreignlanguage{#1}{ingilizce}}%
+    \def\btxlanguagenamecanadien{\protect\foreignlanguage{#1}{frans{\i}zca}}%
+    \def\btxlanguagenamecatalan{\protect\foreignlanguage{#1}{katalanca}}%
+    \def\btxlanguagenamecroatian{\protect\foreignlanguage{#1}{h{\i}rvat\c{c}a}}%
+    \def\btxlanguagenameczech{\protect\foreignlanguage{#1}{\c{c}ek\c{c}e}}%
+    \def\btxlanguagenamedanish{\protect\foreignlanguage{#1}{danca}}%
+    \def\btxlanguagenamedutch{\protect\foreignlanguage{#1}{hollandaca}}%
+    \def\btxlanguagenameenglish{\protect\foreignlanguage{#1}{ingilizce}}%
+    \def\btxlanguagenameesperanto{\protect\foreignlanguage{#1}{esperanto}}%
+    \def\btxlanguagenamefinnish{\protect\foreignlanguage{#1}{fince}}%
+    \def\btxlanguagenamefrancais{\protect\foreignlanguage{#1}{franc\'es}}%
+    \def\btxlanguagenamefrench{\protect\foreignlanguage{#1}{frans{\i}zca}}%
+    \def\btxlanguagenamefrenchb{\protect\foreignlanguage{#1}{frans{\i}zca}}%
+    \def\btxlanguagenamegerman{\protect\foreignlanguage{#1}{almanca}}%
+    \def\btxlanguagenamegermanb{\protect\foreignlanguage{#1}{almanca}}%
+    \def\btxlanguagenamegreek{\protect\foreignlanguage{#1}{yunanca}}%
+    \def\btxlanguagenamehebrew{\protect\foreignlanguage{#1}{ibranice}}%
+    \def\btxlanguagenamehungarian{\protect\foreignlanguage{#1}{macarca}}%
+    \def\btxlanguagenameicelandic{\protect\foreignlanguage{#1}{izlandaca}}%
+    \def\btxlanguagenameirish{\protect\foreignlanguage{#1}{irlandaca}}%
+    \def\btxlanguagenameitalian{\protect\foreignlanguage{#1}{italyanca}}%
+    \def\btxlanguagenamelatin{\protect\foreignlanguage{#1}{latince}}%
+    \def\btxlanguagenamenaustrian{\protect\foreignlanguage{#1}{almanca}}%
+    \def\btxlanguagenamengerman{\protect\foreignlanguage{#1}{almanca}}%
+    \def\btxlanguagenamenorsk{\protect\foreignlanguage{#1}{norve\c{c}\c{c}e}}%
+    \def\btxlanguagenamenynorsk{\protect\foreignlanguage{#1}{norve\c{c}\c{c}e}}%
+    \def\btxlanguagenamepolish{\protect\foreignlanguage{#1}{leh\c{c}}}%
+    \def\btxlanguagenameportuges{\protect\foreignlanguage{#1}{portekizce}}%
+    \def\btxlanguagenameportuguese{\protect\foreignlanguage{#1}{portekizce}}%
+    \def\btxlanguagenamerussian{\protect\foreignlanguage{#1}{rus\c{c}a}}%
+    \def\btxlanguagenamescottish{\protect\foreignlanguage{#1}{isko\c{c}\c{c}a}}%
+    \def\btxlanguagenameserbian{\protect\foreignlanguage{#1}{s{\i}rp\c{c}a}}%
+    \def\btxlanguagenamespanish{\protect\foreignlanguage{#1}{espa\~nol}}%
+    \def\btxlanguagenameswedish{\protect\foreignlanguage{#1}{isve\c{c}\c{c}e}}%
+    \def\btxlanguagenameturkish{\protect\foreignlanguage{#1}{t\"{u}rk\c{c}e}}%
+    \def\btxlanguagenameUKenglish{\protect\foreignlanguage{#1}{ingilizce}}%
+    \def\btxlanguagenameUSenglish{\protect\foreignlanguage{#1}{ingilizce}}%
+  \fi
+}
+%    \end{macrocode}
+% \end{macro}
+% Append the definitions to the language-calling commands.
+%    \begin{macrocode}
+\AtBeginDocument{%
+  \ifbbbbfixlanguage
+  \else
+    \bbbbaddto{turkish}{bibsturkish}
+  \fi
+%    \end{macrocode}
+% Switch on the change of case in titles for all Turkish dialects by
+% appending \cs{btxifchangecaseoff} to \cs{extras}\meta{language}.
+%    \begin{macrocode}
+  \bbbbaddto{turkish}{btxifchangecaseoff}
+}
+%</turkish>
+%    \end{macrocode}
+%
 % \subsubsection{Afrikaans}
 % \changes{0.34}{2003/07/28}{Added Afrikaans language}%
-% \changes{1.33}{2020/10/29}{Added translation of urldatecomment (by Bertus van Heerden)}%
+% \changes{1.33}{2020/10/29}{Added translation of urldatecomment (by Bertus
+%   van Heerden)}%
 %    \begin{macrocode}
 %<*afrikaans>
 %    \end{macrocode}
@@ -5262,6 +5529,8 @@
   \def\btxeditorslong##1{\protect\foreignlanguage{#1}{redakteurs}}%
   \def\btxvolumeshort##1{\protect\foreignlanguage{#1}{vol##1{}}}%
   \def\btxvolumelong##1{\protect\foreignlanguage{#1}{volume}}%
+  \def\btxjvolumeshort##1{\protect\foreignlanguage{#1}{jg##1{}}}%
+  \def\btxjvolumelong##1{\protect\foreignlanguage{#1}{jaargang}}%
   \def\btxnumbershort##1{\protect\foreignlanguage{#1}{no##1{}}}%
   \def\btxnumberlong##1{\protect\foreignlanguage{#1}{nommer}}%
   \def\btxeditionshort##1{\protect\foreignlanguage{#1}{uitg##1{}}}%
@@ -5310,6 +5579,8 @@
   \def\Btxeditorslong##1{\protect\foreignlanguage{#1}{Redakteurs}}%
   \def\Btxvolumeshort##1{\protect\foreignlanguage{#1}{Vol##1{}}}%
   \def\Btxvolumelong##1{\protect\foreignlanguage{#1}{Volume}}%
+  \def\Btxjvolumeshort##1{\protect\foreignlanguage{#1}{Jg##1{}}}%
+  \def\Btxjvolumelong##1{\protect\foreignlanguage{#1}{Jaargang}}%
   \def\Btxnumbershort##1{\protect\foreignlanguage{#1}{No##1{}}}%
   \def\Btxnumberlong##1{\protect\foreignlanguage{#1}{Nommer}}%
   \def\Btxeditionshort##1{\protect\foreignlanguage{#1}{Uitg##1{}}}%
@@ -5428,6 +5699,8 @@
   \def\btxeditorslong##1{\protect\foreignlanguage{#1}{redaktur}}%
   \def\btxvolumeshort##1{\protect\foreignlanguage{#1}{vol##1{}}}%
   \def\btxvolumelong##1{\protect\foreignlanguage{#1}{volume}}%
+  \def\btxjvolumeshort##1{\protect\foreignlanguage{#1}{vol##1{}}}%
+  \def\btxjvolumelong##1{\protect\foreignlanguage{#1}{volume}}%
   \def\btxnumbershort##1{\protect\foreignlanguage{#1}{nr##1{}}}%
   \def\btxnumberlong##1{\protect\foreignlanguage{#1}{nomor}}%
   \def\btxeditionshort##1{\protect\foreignlanguage{#1}{edisi}}%
@@ -5476,6 +5749,8 @@
   \def\Btxeditorslong##1{\protect\foreignlanguage{#1}{Redaktur}}%
   \def\Btxvolumeshort##1{\protect\foreignlanguage{#1}{Vol##1{}}}%
   \def\Btxvolumelong##1{\protect\foreignlanguage{#1}{Volume}}%
+  \def\Btxjvolumeshort##1{\protect\foreignlanguage{#1}{Vol##1{}}}%
+  \def\Btxjvolumelong##1{\protect\foreignlanguage{#1}{Volume}}%
   \def\Btxnumbershort##1{\protect\foreignlanguage{#1}{Nr##1{}}}%
   \def\Btxnumberlong##1{\protect\foreignlanguage{#1}{Nomor}}%
   \def\Btxeditionshort##1{\protect\foreignlanguage{#1}{Ed}}%
@@ -5531,7 +5806,7 @@
     \def\btxlanguagenameitalian{\protect\foreignlanguage{#1}{italia}}%
     \def\btxlanguagenamelatin{\protect\foreignlanguage{#1}{latin}}%
     \def\btxlanguagenamenaustrian{\protect\foreignlanguage{#1}{jerman}}%
- %   \def\btxlanguagenamengerman{\protect\foreignlanguage{#1}{jerman}}%
+    \def\btxlanguagenamengerman{\protect\foreignlanguage{#1}{jerman}}%
  %   \def\btxlanguagenamenorsk{\protect\foreignlanguage{#1}{norwegia}}%
  %   \def\btxlanguagenamenynorsk{\protect\foreignlanguage{#1}{norwegia baru}}%
  %   \def\btxlanguagenamepolish{\protect\foreignlanguage{#1}{polish}}%
@@ -5590,6 +5865,8 @@
   \def\btxeditorslong##1{\protect\foreignlanguage{#1}{editors}}%
   \def\btxvolumeshort##1{\protect\foreignlanguage{#1}{vol##1{}}}%
   \def\btxvolumelong##1{\protect\foreignlanguage{#1}{volum}}%
+  \def\btxjvolumeshort##1{\protect\foreignlanguage{#1}{vol##1{}}}%
+  \def\btxjvolumelong##1{\protect\foreignlanguage{#1}{volum}}%
   \def\btxnumbershort##1{\protect\foreignlanguage{#1}{n}}%
   \def\btxnumberlong##1{\protect\foreignlanguage{#1}{n\'umero}}%
   \def\btxeditionshort##1{\protect\foreignlanguage{#1}{ed##1{}}}%
@@ -5638,6 +5915,8 @@
   \def\Btxeditorslong##1{\protect\foreignlanguage{#1}{Editors}}%
   \def\Btxvolumeshort##1{\protect\foreignlanguage{#1}{Vol##1{}}}%
   \def\Btxvolumelong##1{\protect\foreignlanguage{#1}{Volum}}%
+  \def\Btxjvolumeshort##1{\protect\foreignlanguage{#1}{Vol##1{}}}%
+  \def\Btxjvolumelong##1{\protect\foreignlanguage{#1}{Volum}}%
   \def\Btxnumbershort##1{\protect\foreignlanguage{#1}{N\'um}}%
   \def\Btxnumberlong##1{\protect\foreignlanguage{#1}{N\'umero}}%
   \def\Btxeditionshort##1{\protect\foreignlanguage{#1}{Ed##1{}}}%
@@ -5758,6 +6037,8 @@
   \def\btxeditorslong##1{\protect\foreignlanguage{#1}{urednici}}%
   \def\btxvolumeshort##1{\protect\foreignlanguage{#1}{sv##1{}}}%
   \def\btxvolumelong##1{\protect\foreignlanguage{#1}{svezak}}%
+  \def\btxjvolumeshort##1{\protect\foreignlanguage{#1}{god##1{}}}%
+  \def\btxjvolumelong##1{\protect\foreignlanguage{#1}{godina}}%
   \def\btxnumbershort##1{\protect\foreignlanguage{#1}{br##1{}}}%
   \def\btxnumberlong##1{\protect\foreignlanguage{#1}{broj}}%
   \def\btxeditionshort##1{\protect\foreignlanguage{#1}{izd##1{}}}%
@@ -5807,6 +6088,8 @@
   \def\Btxeditorslong##1{\protect\foreignlanguage{#1}{Urednici}}%
   \def\Btxvolumeshort##1{\protect\foreignlanguage{#1}{Sv##1{}}}%
   \def\Btxvolumelong##1{\protect\foreignlanguage{#1}{Svezak}}%
+  \def\Btxjvolumeshort##1{\protect\foreignlanguage{#1}{God##1{}}}%
+  \def\Btxjvolumelong##1{\protect\foreignlanguage{#1}{Godina}}%
   \def\Btxnumbershort##1{\protect\foreignlanguage{#1}{Br##1{}}}%
   \def\Btxnumberlong##1{\protect\foreignlanguage{#1}{Broj}}%
   \def\Btxeditionshort##1{\protect\foreignlanguage{#1}{Izd##1{}}}%

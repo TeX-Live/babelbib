@@ -1,3 +1,9 @@
+2021/01/06  1.34  Harald Harders (harald.harders@gmx.de)
+	- Small bug fix in documentation
+	- Bug with explicitely loaded language fixed
+	- Added Turkish language
+	- Added btxjnumbers
+
 2020/10/29  1.33  Norbert Preining (norbert@preining.info>
 	- Add missing Afrikaans translation of urldatecomment
 	  (thanks to Bertus van Heerden, Github Issue: #1)
