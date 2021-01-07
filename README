@@ -8,7 +8,7 @@ may be written in another language, or the whole bibliography can
 be typeset in a language chosen by the user. The current version 
 supports Afrikaans, Bahasa, Catalan, Croatian, Danish, Dutch, English,
 Esperanto, Finnish, French, Galician, German, Greek, Italian, Norwegian,
-Portuguese, Romanian, Russian, Serbian, Spanish, and Swedish.
+Portuguese, Romanian, Russian, Serbian, Spanish, Swedish, and Turkish.
   In addition, the package supports commands to change the typography
 of the bibliographies.
   Many of the standard and extended bibliography styles are available.
@@ -25,8 +25,8 @@ to extend it. The source code for this file is not included.
 This article is about version 0.40 of this package but is up-to-date
 in most parts.
 
-Copyright 2003--2019 Harald Harders
-Copyright 2019--2020 Norbert Preining
+Copyright 2003--2021 Harald Harders
+Copyright 2019--2021 Norbert Preining
 
 This program can be redistributed and/or modified under the terms
 of the LaTeX Project Public License Distributed from CTAN
@@ -71,4 +71,4 @@ h.harders@tu-bs.de
 Norbert Preining
 norbert@preining.info
 
-(last changed 2020-10-29 NP)
+(last changed 2021-01-06 NP)
