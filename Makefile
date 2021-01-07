@@ -42,7 +42,7 @@ clean:
 	@-rm -f *~
 
 distclean: clean
-	@-rm -f babelbib.sty babelbib.pdf babelbib.ps
+	@-rm -f babelbib.sty babelbib.ps
 	@-rm -f babelbibtest.pdf babelbibtest.ps
 	@-rm -f *.bdf bab*.bst
 	@-rm -rf texmf/
