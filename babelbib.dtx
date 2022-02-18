@@ -1545,13 +1545,13 @@
 % Test whether argument 1 is a number (from KOMA script)
 %    \begin{macrocode}
 \providecommand\ifnumber[3]{%
- \begingroup\@tempswafalse\let\scr@next\test@number
- \expandafter\scr@next#1\scr@next
+ \begingroup\@tempswafalse\let\btx@next\test@number
+ \expandafter\btx@next#1\btx@next
  \if@tempswa\endgroup#2\else\endgroup#3\fi
 }
 \providecommand*\test@number[1]{%
- \ifx \scr@next#1%
-  \let\scr@next\relax
+ \ifx \btx@next#1%
+  \let\btx@next\relax
  \else
   \@tempcnta=\expandafter\expandafter\expandafter\number
   \expandafter`#1\relax
@@ -1560,10 +1560,10 @@
     \@tempswatrue
    \else\@tempswafalse\fi
   \else\@tempswafalse\fi
-  \if@tempswa\else\let\scr@next\gobble@till@next\fi\fi
- \scr@next
+  \if@tempswa\else\let\btx@next\gobble@till@next\fi\fi
+ \btx@next
 }
-\def\gobble@till@next#1\scr@next{}
+\def\gobble@till@next#1\btx@next{}
 %    \end{macrocode}
 % \end{macro}
 % \changes{1.17}{2005/11/05}{Handle numerical edition numbers}%
