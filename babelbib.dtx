@@ -580,7 +580,7 @@
 %  \def\btxnumeralshort#1{%
 %    \btxnumeralenglish{english}{#1}}%
 %  \def\btxnumerallong#1{%
-%    \ifnumber{#1}{%
+%    \btxifnumber{#1}{%
 %      \ifcase#1 0th\or first\or second\or third\or forth\or fifth\or
 %        sixth\or seventh\or eighth\or nineth\or tenth\else
 %        \btxnumeralenglish{english}{#1}%
@@ -1018,11 +1018,11 @@
 }
 \newcommand*\btx@datenumeric{%
   \def\btxprintmonthyear##1##2##3##4{%
-    \ifnumber{##2}{\btxprintmonthyearnum{##2}{##3}}{##2\ ##3}}%
+    \btxifnumber{##2}{\btxprintmonthyearnum{##2}{##3}}{##2\ ##3}}%
 }
 \newcommand*\btx@datename{%
   \def\btxprintmonthyear##1##2##3##4{%
-    \ifnumber{##2}{%
+    \btxifnumber{##2}{%
       \ifcase ##2 \or
       \csname btxmonjan##4\endcsname{##1}\or
       \csname btxmonfeb##4\endcsname{##1}\or
@@ -1541,10 +1541,10 @@
 \fi
 %    \end{macrocode}
 % \end{macro}
-% \begin{macro}{\btx@ifnumerical}
+% \begin{macro}{\btxifnumber}
 % Test whether argument 1 is a number (from KOMA script)
 %    \begin{macrocode}
-\providecommand\ifnumber[3]{%
+\providecommand\btxifnumber[3]{%
  \begingroup\@tempswafalse\let\btx@next\test@number
  \expandafter\btx@next#1\btx@next
  \if@tempswa\endgroup#2\else\endgroup#3\fi
@@ -1589,7 +1589,7 @@
 %    \begin{macrocode}
 \DeclareRobustCommand\btxnumeralfallback[2]{%
   \foreignlanguage{#1}{%
-    \ifnumber{#2}{%
+    \btxifnumber{#2}{%
       \PackageWarning{babelbib}{Handling of numerical editions not
         handled\MessageBreak by language #1 for edition `#2'}%
     }{}%
@@ -1601,7 +1601,7 @@
 % \begin{macro}{\btxnumeraldot}
 %    \begin{macrocode}
 \DeclareRobustCommand\btxnumeraldot[2]{%
-  \foreignlanguage{#1}{\ifnumber{#2}{#2.}{#2}}%
+  \foreignlanguage{#1}{\btxifnumber{#2}{#2.}{#2}}%
 }
 %    \end{macrocode}
 % \end{macro}
@@ -1609,7 +1609,7 @@
 %    \begin{macrocode}
 \DeclareRobustCommand\btxnumeralenglish[2]{%
   \foreignlanguage{#1}{%
-    \ifnumber{#2}{%
+    \btxifnumber{#2}{%
       \expandafter\btx@parsenum#2\@empty\@empty\@empty
       \btxnumeralfont{%
         \ifx\btx@digitb\@empty
@@ -1634,7 +1634,7 @@
 \renewcommand\thebtxromaniannumeral{\Roman{btxromaniannumeral}}%
 \DeclareRobustCommand\btxnumeralromanian[2]{%
   \foreignlanguage{#1}{%
-    \ifnumber{#2}{%
+    \btxifnumber{#2}{%
       \setcounter{btxromaniannumeral}{#2}%
       \ifcase#2 0\or \thebtxromaniannumeral\else a \thebtxromaniannumeral-a \fi
     }{#2}%
@@ -1647,7 +1647,7 @@
 %    \begin{macrocode}
 \DeclareRobustCommand\btxnumeralfrench[2]{%
   \foreignlanguage{#1}{%
-    \ifnumber{#2}{%
+    \btxifnumber{#2}{%
       \expandafter\btx@parsenum#2\@empty\@empty\@empty
       \btxnumeralfont{%
         \ifx\btx@digitb\@empty
@@ -1670,7 +1670,7 @@
 %    \begin{macrocode}
 \DeclareRobustCommand\btxnumeralswedish[2]{%
   \foreignlanguage{#1}{%
-    \ifnumber{#2}{%
+    \btxifnumber{#2}{%
       \expandafter\btx@parsenum#2\@empty\@empty\@empty
       \btxnumeralfont{%
         \ifx\btx@digitb\@empty
@@ -2175,7 +2175,7 @@
   \def\btxfnamespaceshort{\,}%
   \def\btxfnamespacelong{ }%
   \def\btxnumeralshort##1{\protect\foreignlanguage{#1}{%
-      \ifnumber{##1}{##1\textsuperscript{a}}{##1}}}%
+      \btxifnumber{##1}{##1\textsuperscript{a}}{##1}}}%
   \def\btxnumerallong##1{\btxnumeralshort{##1}}%
 %    \end{macrocode}
 % Define how to print month and year in numeric format, e.\,g. MM/YYYY.
@@ -2717,8 +2717,8 @@
   \def\btxfnamespaceshort{\,}%
   \def\btxfnamespacelong{ }%
   \def\btxnumeralshort##1{\protect\foreignlanguage{#1}{%
-      \ifnumber{##1}{##1h}{##1}}}%
-  \def\btxnumerallong##1{\protect\foreignlanguage{#1}{\ifnumber{##1}{%
+      \btxifnumber{##1}{##1h}{##1}}}%
+  \def\btxnumerallong##1{\protect\foreignlanguage{#1}{\btxifnumber{##1}{%
         \ifcase##1 ##1h\or pr'wth\or de'uterh\or tr'ith\or t'etarth%
           \or p'empth\or 'ekth\or 'ebdomh\or 'ogdoh\or 'enath\else ##1h\fi
       }{##1}}}%
@@ -3997,8 +3997,8 @@
   \def\btxfnamespaceshort{\,}%
   \def\btxfnamespacelong{ }%
   \def\btxnumeralshort##1{\protect\foreignlanguage{#1}{%
-      \ifnumber{##1}{##1\textsuperscript{\underline a}}{##1}}}%
-%  \def\btxnumeralshort##1{\ifnumber{##1}{\protect\foreignlanguage{#1}{%
+      \btxifnumber{##1}{##1\textsuperscript{\underline a}}{##1}}}%
+%  \def\btxnumeralshort##1{\btxifnumber{##1}{\protect\foreignlanguage{#1}{%
 %        ##1\ifcase##1 \ieme\or \iere\else \ieme\fi}}{##1}}%
 %    \end{macrocode}
 % \changes{1.31}{2012/01/03}{Fix definition of \cs{btxnumerallong} in
@@ -4856,7 +4856,7 @@
   \def\btxfnamespaceshort{\,}%
   \def\btxfnamespacelong{ }%
   \def\btxnumeralshort##1{\protect\foreignlanguage{#1}{%
-      \ifnumber{##1}{##1\textsuperscript{\underline a}}{##1}}}%
+      \btxifnumber{##1}{##1\textsuperscript{\underline a}}{##1}}}%
   \def\btxnumerallong##1{\btxnumeralshort{##1}}%
 %    \end{macrocode}
 % Define how to print month and year in numeric format, e.\,g. MM/YYYY.
@@ -5243,7 +5243,7 @@
   \def\btxnumeralshort#1{\btxnumeralswedish{swedish}{#1}}%
   \def\btxnumerallong##1{\btxnumeralfallback{#1}{##1}}%
   \def\btxnumerallong##1{%
-    \ifnumber{##1}{%
+    \btxifnumber{##1}{%
       \ifcase##1 0:e\or f\"orsta\or andra\or tredje\or fj\"arde\or femte\or
         sj\"atte\or sjunde\or {\aa}ttonde\or nionde\or tionde\else
         \btxnumeralswedish{swedish}{##1}%
@@ -5426,7 +5426,7 @@
   \def\btxfnamespaceshort{}%
   \def\btxfnamespacelong{ }%
   \def\btxnumeralshort##1{\protect\foreignlanguage{#1}{%
-      \ifnumber{##1}{##1\textsuperscript{\underline a}}{##1}}}%
+      \btxifnumber{##1}{##1\textsuperscript{\underline a}}{##1}}}%
   \def\btxnumerallong##1{\btxnumeralshort{#1}{##1}}%
 %    \end{macrocode}
 % Define how to print month and year in numeric format, e.\,g. MM/YYYY.

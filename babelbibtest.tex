@@ -47,7 +47,7 @@
 \declarebtxcommands{english}{%
   \def\btxfnamespaceshort{\,}%
   \def\btxeditionnumerallong#1{%
-    \ifnumber{#1}{%
+    \btxifnumber{#1}{%
       \ifcase#1 0\or first\or second\or third\or forth\or fifth\or
         sixth\or seventh\or eighth\or nineth\or tenth\else
         \btxeditionnumeralenglish{english}{#1}%
@@ -60,9 +60,9 @@
 %% language names:
 % \newcommand\btxprintamslanguage[1]{}
 
-%\newcommand\btxprintmonthyear[2]{\ifnumber{#1}{#1/#2}{#1\ #2}}
+%\newcommand\btxprintmonthyear[2]{\btxifnumber{#1}{#1/#2}{#1\ #2}}
 \newcommand\btxprintmonthyearasdf[4]{%
-  \ifnumber{#2}{%
+  \btxifnumber{#2}{%
     \ifcase #2 \or
     \csname btxmonjan#4\endcsname{#1}\or
     \btxmonfeblong{#1}\or \btxmonmarlong{#1}\or
@@ -108,8 +108,8 @@ Remove the \%\ in order to see the effects.
 
 \bibliography{babelbibtest}
 
-\ifnumber{3}{3/2009}{März 2009}
+\btxifnumber{3}{3/2009}{März 2009}
 
-\ifnumber{März}{3/2009}{März 2009}
+\btxifnumber{März}{3/2009}{März 2009}
 
 \end{document}
