@@ -1,6 +1,7 @@
 % \iffalse meta comment
 % File: babelbib.dtx Copyright (C) 2003--2021 Harald Harders
 %                    Copyright (C) 2019--2022 Norbert Preining
+%                    Copyright (C) 2022 Markus Kohm
 % \fi
 %
 % \iffalse
@@ -152,7 +153,8 @@
 % \changes{1.34}{2021/01/06}{Bug with explicitely loaded language fixed}%
 % \changes{1.34}{2021/01/06}{Added Turkish language}%
 % \changes{1.34}{2021/01/06}{Added \cs{btxjnumbers}\ldots}%
-% \changes{1.35}{2022/XX/YY}{Rename some commands for better compatibility}%
+% \changes{1.35}{2022/XX/YY}{Rename some commands for better compatibility
+%   and allow for multiple appearances of the same language in the options}%
 %
 % \maketitle
 % \begin{abstract}
@@ -1055,12 +1057,17 @@
 % languages. This is implemented in order to be able to use a new
 % language that is not yet supported by the official |babelbib|.
 % \changes{1.15}{2005/09/01}{Small bug fix in loading language files}%
+% \changes{1.35}{2022/XX/YY}{Allow for double language options}%
 %    \begin{macrocode}
 \DeclareOption*{%
   \InputIfFileExists{\CurrentOption.bdf}{%
-    \typeout{babelbib: \CurrentOption.bdf loaded due to explicit package
-      option \CurrentOption}%
-    \expandafter\def\csname bbbb\CurrentOption loaded\endcsname{\@empty}%
+    \@ifundefined{bbbb\CurrentOption loaded}{%
+      \typeout{babelbib: \CurrentOption.bdf loaded due to explicit package
+        option \CurrentOption}%
+      \expandafter\def\csname bbbb\CurrentOption loaded\endcsname{\@empty}%
+    }{%
+      \typeout{babelbib: explicit  package option \CurrentOption\space ignored, because \CurrentOption.bdf already loaded}%
+    }%
   }{%
     \PackageError{babelbib}{%
       Language definition file \CurrentOption.bdf not found}{%
